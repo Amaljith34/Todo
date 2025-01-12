@@ -15,7 +15,7 @@ const Todo = () => {
   //fetch
   const fetchTodo = async () => {
     try {
-      const datas = await axios.get("http://localhost:4000/api/todo");
+      const datas = await axios.get("https://todoserver-ulqi.onrender.com/api/todo");
       setTodos(datas.data.data);
     } catch (error) {
       console.log(error);
@@ -29,7 +29,7 @@ const Todo = () => {
   //added
   const postData = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/api/todo", {
+      const response = await axios.post("https://todoserver-ulqi.onrender.com/api/todo", {
         name,
         age,
       });
@@ -55,7 +55,7 @@ const Todo = () => {
   const edited = async (id) => {
     try {
       const response = await axios.patch(
-        `http://localhost:4000/api/todo/${id}`,
+        `https://todoserver-ulqi.onrender.com/api/todo/${id}`,
         { name, age }
       );
       if (response.data.success) {
@@ -72,7 +72,7 @@ const Todo = () => {
   };
   const handleDelete = async (id) => {
     try {
-        const response=await axios.delete(`http://localhost:4000/api/todo/${id}`)
+        const response=await axios.delete(`https://todoserver-ulqi.onrender.com/api/todo/${id}`)
         if(response.data.success){
             alert('delete')
             fetchTodo()
